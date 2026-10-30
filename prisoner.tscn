@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://catwuack1y4js"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_g7b7a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gyc6d"]
+size = Vector2(5.5, 5.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6qx4q"]
+size = Vector2(5.5210714, 5.95637)
+
+[node name="Prisoner" type="CharacterBody2D" unique_id=1984377150]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1144936159]
+modulate = Color(0.078431375, 0.101960786, 1, 1)
+scale = Vector2(5.5, 5.5)
+texture = SubResource("CanvasTexture_g7b7a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2021655074]
+shape = SubResource("RectangleShape2D_gyc6d")
+
+[node name="RockDetector" type="Area2D" parent="." unique_id=1414367836]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RockDetector" unique_id=1258727305]
+shape = SubResource("RectangleShape2D_6qx4q")

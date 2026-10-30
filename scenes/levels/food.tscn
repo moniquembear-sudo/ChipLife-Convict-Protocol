@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://c5ru7834gro1b"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_g7b7a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gyc6d"]
+size = Vector2(39, 38)
+
+[node name="Food" type="Area2D" unique_id=2020487768]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1895565948]
+scale = Vector2(37.5, 34.5)
+texture = SubResource("CanvasTexture_g7b7a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=19149901]
+shape = SubResource("RectangleShape2D_gyc6d")

@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://pxdwadj6f31p"]
+
+[ext_resource type="PackedScene" uid="uid://catwuack1y4js" path="res://prisoner.tscn" id="1_h2yge"]
+[ext_resource type="Script" uid="uid://bmhtqe8yfla12" path="res://scripts/characters/prisoner.gd" id="2_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://b3pj3ctttivp8" path="res://rock.tscn" id="3_lquwl"]
+[ext_resource type="PackedScene" uid="uid://vb6snnbnt12r" path="res://scenes/levels/storage.tscn" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://c5ru7834gro1b" path="res://scenes/levels/food.tscn" id="5_lquwl"]
+[ext_resource type="Script" uid="uid://davh25f0lesi8" path="res://scripts/systems/food.gd" id="6_7mycd"]
+[ext_resource type="Script" uid="uid://dx07lt7w81opc" path="res://scripts/ui/ui.gd" id="7_272bh"]
+
+[node name="main" type="Node2D" unique_id=1390243674]
+
+[node name="Prisoner" parent="." unique_id=1984377150 instance=ExtResource("1_h2yge")]
+position = Vector2(57.999996, 46.999996)
+scale = Vector2(5, 5)
+script = ExtResource("2_1bvp3")
+
+[node name="Rock" parent="." unique_id=297594708 instance=ExtResource("3_lquwl")]
+position = Vector2(821, 145)
+
+[node name="Storage" parent="." unique_id=1360826672 instance=ExtResource("4_1bvp3")]
+position = Vector2(392, 226)
+scale = Vector2(2, 2)
+
+[node name="Food" parent="." unique_id=2020487768 instance=ExtResource("5_lquwl")]
+position = Vector2(667, 83)
+script = ExtResource("6_7mycd")
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1899535570]
+script = ExtResource("7_272bh")
+
+[node name="HungerBar" type="ProgressBar" parent="UI" unique_id=307328920]
+offset_left = 24.0
+offset_top = 1.0
+offset_right = 28.0
+offset_bottom = 28.0

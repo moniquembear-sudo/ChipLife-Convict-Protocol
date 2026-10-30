@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://b3pj3ctttivp8"]
+
+[ext_resource type="Script" uid="uid://bxtevr42xmlv5" path="res://scripts/characters/rock.gd" id="1_o0qsl"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_glw62"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g7b7a"]
+radius = 9.0
+
+[node name="Rock" type="Area2D" unique_id=297594708]
+script = ExtResource("1_o0qsl")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1404456068]
+modulate = Color(0.5647059, 0, 0.20784314, 1)
+scale = Vector2(12.249999, 11.25)
+texture = SubResource("CanvasTexture_glw62")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=925741397]
+shape = SubResource("CircleShape2D_g7b7a")

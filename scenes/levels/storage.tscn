@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://vb6snnbnt12r"]
+
+[ext_resource type="Script" uid="uid://2fmbbe1a03js" path="res://scripts/systems/storage.gd" id="1_bwtok"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_g7b7a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g7b7a"]
+size = Vector2(25.5, 24)
+
+[node name="Storage" type="Area2D" unique_id=1360826672]
+script = ExtResource("1_bwtok")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1340381014]
+modulate = Color(0.6716087, 0.32816252, 0.027701365, 1)
+scale = Vector2(25, 23)
+texture = SubResource("CanvasTexture_g7b7a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=660238259]
+position = Vector2(0.25, 0)
+shape = SubResource("RectangleShape2D_g7b7a")
