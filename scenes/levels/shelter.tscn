@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://crqb07xug1ib8"]
+
+[ext_resource type="Script" uid="uid://dqdf12y4c8xeu" path="res://scripts/systems/shelter.gd" id="1_1cgom"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_g7b7a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g7b7a"]
+size = Vector2(162.71875, 154.53125)
+
+[node name="Shelter" type="Area2D" unique_id=2071774254]
+script = ExtResource("1_1cgom")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=440516329]
+modulate = Color(1, 1, 1, 0.14117648)
+scale = Vector2(162, 151.25)
+texture = SubResource("CanvasTexture_g7b7a")
+flip_v = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=770779418]
+y_sort_enabled = true
+use_parent_material = true
+shape = SubResource("RectangleShape2D_g7b7a")

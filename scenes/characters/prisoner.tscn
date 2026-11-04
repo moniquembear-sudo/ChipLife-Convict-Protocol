@@ -1,5 +1,8 @@
 [gd_scene format=3 uid="uid://catwuack1y4js"]
 
+[ext_resource type="Script" uid="uid://bmhtqe8yfla12" path="res://scripts/characters/prisoner.gd" id="1_2uhv4"]
+[ext_resource type="Script" uid="uid://cdk34v75h70ue" path="res://scripts/characters/brain.gd" id="2_2ppqu"]
+
 [sub_resource type="CanvasTexture" id="CanvasTexture_g7b7a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gyc6d"]
@@ -9,6 +12,7 @@ size = Vector2(5.5, 5.5)
 size = Vector2(5.5210714, 5.95637)
 
 [node name="Prisoner" type="CharacterBody2D" unique_id=1984377150]
+script = ExtResource("1_2uhv4")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1144936159]
 modulate = Color(0.078431375, 0.101960786, 1, 1)
@@ -22,3 +26,6 @@ shape = SubResource("RectangleShape2D_gyc6d")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RockDetector" unique_id=1258727305]
 shape = SubResource("RectangleShape2D_6qx4q")
+
+[node name="Brain" type="Node" parent="." unique_id=473339828]
+script = ExtResource("2_2ppqu")

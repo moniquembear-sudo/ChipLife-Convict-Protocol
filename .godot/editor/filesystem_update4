@@ -1,0 +1,6 @@
+res://scenes/ui/ui.tscn
+res://scripts/characters/brain.gd
+res://scripts/characters/prisoner.gd
+res://scripts/ui/ui.gd
+res://scripts/ui/program_panel.gd
+res://scripts/ui/code_panel.gd

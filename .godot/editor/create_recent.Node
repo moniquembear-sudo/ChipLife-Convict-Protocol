@@ -1,6 +1,14 @@
-ProgressBar
-CanvasLayer
+Button
+HBoxContainer
+Label
+VBoxContainer
+Panel
+ScrollContainer
+Node
+OptionButton
+ColorRect
 CollisionShape2D
 Sprite2D
 Area2D
-CharacterBody2D
+ProgressBar
+CanvasLayer

@@ -1,36 +1,62 @@
 [gd_scene format=3 uid="uid://pxdwadj6f31p"]
 
-[ext_resource type="PackedScene" uid="uid://catwuack1y4js" path="res://prisoner.tscn" id="1_h2yge"]
-[ext_resource type="Script" uid="uid://bmhtqe8yfla12" path="res://scripts/characters/prisoner.gd" id="2_1bvp3"]
-[ext_resource type="PackedScene" uid="uid://b3pj3ctttivp8" path="res://rock.tscn" id="3_lquwl"]
+[ext_resource type="PackedScene" uid="uid://catwuack1y4js" path="res://scenes/characters/prisoner.tscn" id="1_h2yge"]
+[ext_resource type="PackedScene" uid="uid://b3pj3ctttivp8" path="res://scenes/characters/rock.tscn" id="3_lquwl"]
 [ext_resource type="PackedScene" uid="uid://vb6snnbnt12r" path="res://scenes/levels/storage.tscn" id="4_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://c5ru7834gro1b" path="res://scenes/levels/food.tscn" id="5_lquwl"]
-[ext_resource type="Script" uid="uid://davh25f0lesi8" path="res://scripts/systems/food.gd" id="6_7mycd"]
-[ext_resource type="Script" uid="uid://dx07lt7w81opc" path="res://scripts/ui/ui.gd" id="7_272bh"]
+[ext_resource type="PackedScene" uid="uid://dgfkfcljjy61k" path="res://scenes/ui/ui.tscn" id="7_kek77"]
+[ext_resource type="PackedScene" uid="uid://crqb07xug1ib8" path="res://scenes/levels/shelter.tscn" id="8_kek77"]
 
 [node name="main" type="Node2D" unique_id=1390243674]
 
 [node name="Prisoner" parent="." unique_id=1984377150 instance=ExtResource("1_h2yge")]
 position = Vector2(57.999996, 46.999996)
 scale = Vector2(5, 5)
-script = ExtResource("2_1bvp3")
 
 [node name="Rock" parent="." unique_id=297594708 instance=ExtResource("3_lquwl")]
 position = Vector2(821, 145)
 
 [node name="Storage" parent="." unique_id=1360826672 instance=ExtResource("4_1bvp3")]
-position = Vector2(392, 226)
+position = Vector2(520, 426)
 scale = Vector2(2, 2)
 
+[node name="UI" parent="." unique_id=182508876 instance=ExtResource("7_kek77")]
+
+[node name="Shelter" parent="." unique_id=2071774254 instance=ExtResource("8_kek77")]
+position = Vector2(385, 370)
+
 [node name="Food" parent="." unique_id=2020487768 instance=ExtResource("5_lquwl")]
-position = Vector2(667, 83)
-script = ExtResource("6_7mycd")
+position = Vector2(626.99994, 385.99997)
 
-[node name="UI" type="CanvasLayer" parent="." unique_id=1899535570]
-script = ExtResource("7_272bh")
+[node name="Rock2" parent="." unique_id=1834989481 instance=ExtResource("3_lquwl")]
+position = Vector2(912, 457)
 
-[node name="HungerBar" type="ProgressBar" parent="UI" unique_id=307328920]
-offset_left = 24.0
-offset_top = 1.0
-offset_right = 28.0
-offset_bottom = 28.0
+[node name="Rock3" parent="." unique_id=184981361 instance=ExtResource("3_lquwl")]
+position = Vector2(648, 140)
+
+[node name="Rock4" parent="." unique_id=1615961173 instance=ExtResource("3_lquwl")]
+position = Vector2(706, 304)
+
+[node name="Rock5" parent="." unique_id=1687082737 instance=ExtResource("3_lquwl")]
+position = Vector2(761, 414)
+
+[node name="Rock6" parent="." unique_id=906438050 instance=ExtResource("3_lquwl")]
+position = Vector2(848, 406)
+
+[node name="Rock7" parent="." unique_id=629076066 instance=ExtResource("3_lquwl")]
+position = Vector2(813, 352)
+
+[node name="Rock8" parent="." unique_id=2050211364 instance=ExtResource("3_lquwl")]
+position = Vector2(108, 284)
+
+[node name="Rock9" parent="." unique_id=1069818754 instance=ExtResource("3_lquwl")]
+position = Vector2(251, 247)
+
+[node name="Rock10" parent="." unique_id=722516419 instance=ExtResource("3_lquwl")]
+position = Vector2(199, 239)
+
+[node name="Food2" parent="." unique_id=1827895002 instance=ExtResource("5_lquwl")]
+position = Vector2(369, 160)
+
+[node name="Food3" parent="." unique_id=1082819982 instance=ExtResource("5_lquwl")]
+position = Vector2(64.00003, 554)

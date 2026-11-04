@@ -1,0 +1,203 @@
+[gd_scene format=3 uid="uid://dgfkfcljjy61k"]
+
+[ext_resource type="Script" uid="uid://dx07lt7w81opc" path="res://scripts/ui/ui.gd" id="1_u7n8c"]
+[ext_resource type="Script" uid="uid://c67ecsgs60spr" path="res://scripts/ui/program_panel.gd" id="2_f5cxw"]
+[ext_resource type="Script" uid="uid://c3e22wmtkclyk" path="res://scripts/ui/code_panel.gd" id="3_aac20"]
+
+[node name="UI" type="CanvasLayer" unique_id=182508876]
+script = ExtResource("1_u7n8c")
+
+[node name="HungerBarBackground" type="ColorRect" parent="." unique_id=979589238]
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 210.0
+offset_bottom = 30.0
+color = Color(0.34941176, 0.34941182, 0.34941164, 1)
+
+[node name="HungerBarFill" type="ColorRect" parent="." unique_id=186899881]
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 210.0
+offset_bottom = 30.0
+color = Color(0.729585, 0.25793567, 0.24616298, 1)
+
+[node name="HungerLabel" type="Label" parent="." unique_id=831666524]
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 50.0
+offset_bottom = 33.0
+
+[node name="GameOverLabel" type="Label" parent="." unique_id=1203419443]
+modulate = Color(0.8803521, 0.089982994, 0.17056811, 1)
+light_mask = 257
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RestartButton" type="Button" parent="." unique_id=54796037]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -123.0
+offset_top = -47.0
+offset_right = -31.0
+offset_bottom = -11.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "reinicie"
+
+[node name="StormLabel" type="Label" parent="." unique_id=1544938498]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 23.0
+grow_horizontal = 0
+
+[node name="WorkPanel" type="Panel" parent="." unique_id=540073096]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -384.75
+offset_top = -194.5
+offset_right = 384.75
+offset_bottom = 194.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_f5cxw")
+
+[node name="TitleLabel" type="Label" parent="WorkPanel" unique_id=7741904]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -114.0
+offset_top = 20.0
+offset_right = 114.0
+offset_bottom = 43.0
+grow_horizontal = 2
+text = "Panel de accionesde acciones"
+
+[node name="CloseButton" type="Button" parent="WorkPanel" unique_id=1055893122]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -28.5
+offset_top = 12.5
+offset_right = -10.5
+offset_bottom = 43.5
+grow_horizontal = 0
+text = "X"
+
+[node name="TableScroll" type="ScrollContainer" parent="WorkPanel" unique_id=568717119]
+layout_mode = 0
+offset_left = 32.5
+offset_top = 65.5
+offset_right = 573.5
+offset_bottom = 309.5
+
+[node name="ApplyButton" type="Button" parent="WorkPanel" unique_id=439227183]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -72.5
+offset_top = -46.5
+offset_right = -10.5
+offset_bottom = -15.5
+grow_horizontal = 0
+grow_vertical = 0
+text = "Aplicar"
+
+[node name="OpenProgramButton" type="Button" parent="." unique_id=1016666745]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -223.0
+offset_top = -48.0
+offset_right = -150.0
+offset_bottom = -12.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "trabajo"
+
+[node name="CodePanel" type="Panel" parent="." unique_id=1797158098]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -227.0
+offset_top = -118.5
+offset_right = 227.0
+offset_bottom = 118.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_aac20")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CodePanel" unique_id=1819282348]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -162.5
+offset_top = -100.0
+offset_right = 162.5
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CodePanel/VBoxContainer" unique_id=526323408]
+layout_mode = 2
+text = "Función: Comer"
+
+[node name="Label2" type="Label" parent="CodePanel/VBoxContainer" unique_id=897006497]
+layout_mode = 2
+text = "Ejecutar si el hambre es menor a:"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CodePanel/VBoxContainer" unique_id=2102503178]
+layout_mode = 2
+
+[node name="MinusBtn" type="Button" parent="CodePanel/VBoxContainer/HBoxContainer" unique_id=1910890999]
+layout_mode = 2
+text = "-"
+
+[node name="ValueLabel" type="Label" parent="CodePanel/VBoxContainer/HBoxContainer" unique_id=158856934]
+layout_mode = 2
+text = "30%"
+
+[node name="PlusBtn" type="Button" parent="CodePanel/VBoxContainer/HBoxContainer" unique_id=1419647482]
+layout_mode = 2
+text = "+"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CodePanel/VBoxContainer" unique_id=514009620]
+layout_mode = 2
+
+[node name="ApplyButton" type="Button" parent="CodePanel/VBoxContainer/HBoxContainer2" unique_id=1281483974]
+layout_mode = 2
+text = "aplicar"
+
+[node name="ExitButton" type="Button" parent="CodePanel/VBoxContainer/HBoxContainer2" unique_id=2067238900]
+layout_mode = 2
+text = "salir"
+
+[connection signal="pressed" from="RestartButton" to="." method="_on_restart_pressed"]
