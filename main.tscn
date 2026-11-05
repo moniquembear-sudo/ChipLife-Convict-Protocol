@@ -19,14 +19,17 @@ position = Vector2(821, 145)
 [node name="Storage" parent="." unique_id=1360826672 instance=ExtResource("4_1bvp3")]
 position = Vector2(520, 426)
 scale = Vector2(2, 2)
+script = null
 
 [node name="UI" parent="." unique_id=182508876 instance=ExtResource("7_kek77")]
 
 [node name="Shelter" parent="." unique_id=2071774254 instance=ExtResource("8_kek77")]
 position = Vector2(385, 370)
+script = null
 
 [node name="Food" parent="." unique_id=2020487768 instance=ExtResource("5_lquwl")]
 position = Vector2(626.99994, 385.99997)
+script = null
 
 [node name="Rock2" parent="." unique_id=1834989481 instance=ExtResource("3_lquwl")]
 position = Vector2(912, 457)
@@ -57,6 +60,8 @@ position = Vector2(199, 239)
 
 [node name="Food2" parent="." unique_id=1827895002 instance=ExtResource("5_lquwl")]
 position = Vector2(369, 160)
+script = null
 
 [node name="Food3" parent="." unique_id=1082819982 instance=ExtResource("5_lquwl")]
 position = Vector2(64.00003, 554)
+script = null

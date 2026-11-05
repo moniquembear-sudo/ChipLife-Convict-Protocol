@@ -1,6 +1,8 @@
-res://scripts/ui/
 res://scripts/characters/
+res://scripts/components/
 res://scripts/systems/
-res://scenes/ui/
+res://scripts/entities/
 res://
+res://scripts/ui/
+res://scenes/ui/
 res://scenes/levels/

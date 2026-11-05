@@ -1,7 +1,10 @@
 [gd_scene format=3 uid="uid://catwuack1y4js"]
 
-[ext_resource type="Script" uid="uid://bmhtqe8yfla12" path="res://scripts/characters/prisoner.gd" id="1_2uhv4"]
-[ext_resource type="Script" uid="uid://cdk34v75h70ue" path="res://scripts/characters/brain.gd" id="2_2ppqu"]
+[ext_resource type="Script" uid="uid://dla27v564b82n" path="res://scripts/entities/prisoner.gd" id="1_2uhv4"]
+[ext_resource type="Script" uid="uid://diggov1uro8r4" path="res://scripts/systems/brain.gd" id="2_2ppqu"]
+[ext_resource type="Script" uid="uid://bi6wux3tchwbv" path="res://scripts/components/movement.gd" id="3_u1doo"]
+[ext_resource type="Script" uid="uid://lh7awd6lfcvw" path="res://scripts/components/needs.gd" id="4_7hixa"]
+[ext_resource type="Script" uid="uid://c0lbhfvgowhmt" path="res://scripts/components/storm_manager.gd" id="5_gbg81"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_g7b7a"]
 
@@ -29,3 +32,12 @@ shape = SubResource("RectangleShape2D_6qx4q")
 
 [node name="Brain" type="Node" parent="." unique_id=473339828]
 script = ExtResource("2_2ppqu")
+
+[node name="Movement" type="Node" parent="." unique_id=1272142312]
+script = ExtResource("3_u1doo")
+
+[node name="Needs" type="Node" parent="." unique_id=1015557151]
+script = ExtResource("4_7hixa")
+
+[node name="StormManager" type="Node" parent="." unique_id=936372602]
+script = ExtResource("5_gbg81")
