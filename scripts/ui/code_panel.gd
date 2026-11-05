@@ -16,7 +16,7 @@ func _ready() -> void:
 func open_panel(target_prisoner: CharacterBody2D) -> void:
 	prisoner = target_prisoner
 	# Leer el valor actual del prisionero
-	current_threshold = prisoner.hunger_threshold
+	current_threshold = prisoner.needs.hunger_threshold
 	_update_label()
 	show()
 
@@ -37,7 +37,7 @@ func _update_label() -> void:
 
 func _on_apply_pressed() -> void:
 	if prisoner:
-		prisoner.hunger_threshold = current_threshold
+		prisoner.needs.hunger_threshold = current_threshold
 		print("Nuevo umbral de hambre aplicado: ", current_threshold)
 		hide()
 

@@ -19,6 +19,7 @@ func stop() -> void:
 	entity.velocity = Vector2.ZERO
 
 func _physics_process(_delta: float) -> void:
+	print("Movement: moving=", moving, " entity=", entity)
 	if not moving or not entity:
 		entity.velocity = Vector2.ZERO
 		return

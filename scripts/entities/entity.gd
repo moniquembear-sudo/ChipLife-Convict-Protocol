@@ -19,3 +19,4 @@ func _ready() -> void:
 		storm_manager.setup(self)
 	if brain:
 		brain.setup(self)
+		brain.execute()

@@ -14,7 +14,13 @@ var hunger_threshold: int = 30
 func _ready() -> void:
 	super._ready()
 	add_to_group("prisionero")
-	# Asignar referencias a los componentes
 	if needs:
 		needs.current_hunger = needs.max_hunger
 		needs.current_health = needs.max_health
+	if brain:
+		brain.storage = get_tree().get_first_node_in_group("almacen")
+		brain.shelter = get_tree().get_first_node_in_group("refugio")
+		# Pasar prioridades iniciales del panel
+		var work_panel = get_tree().get_first_node_in_group("work_panel")
+		if work_panel:
+			brain.set_priorities(work_panel.get_current_priorities())

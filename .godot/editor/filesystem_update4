@@ -1,9 +1,5 @@
 res://scenes/characters/prisoner.tscn
-res://scripts/components/movement.gd
-res://scripts/components/needs.gd
-res://scripts/entities/prisoner.gd
-res://scripts/components/storm_manager.gd
-res://main.tscn
-res://scripts/systems/brain.gd
 res://scripts/entities/entity.gd
-res://scripts/ui/ui.gd
+res://scripts/entities/prisoner.gd
+res://scripts/systems/brain.gd
+res://scripts/ui/code_panel.gd

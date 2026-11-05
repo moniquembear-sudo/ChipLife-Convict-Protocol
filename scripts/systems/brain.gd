@@ -34,7 +34,7 @@ func _try_action(action: String) -> bool:
 				entity.movement.move_to(storage.global_position)
 				return true
 		"comer":
-			if entity.needs.current_hunger >= entity.hunger_threshold:
+			if entity.needs.current_hunger >= entity.needs.hunger_threshold:
 				return false
 			var food = _find_nearest_food()
 			if food:
