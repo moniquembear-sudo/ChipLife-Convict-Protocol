@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://ddxahmknduapv"]
+
+[ext_resource type="Script" uid="uid://84kpoycub2en" path="res://scripts/systems/estacion_solar.gd" id="1_a8t5x"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_g7b7a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gyc6d"]
+size = Vector2(102, 97)
+
+[node name="EstacionSolar" type="Area2D" unique_id=1266393310]
+script = ExtResource("1_a8t5x")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=674103040]
+modulate = Color(0.59607846, 0.39607844, 0.20392157, 0.36078432)
+scale = Vector2(101.75001, 94.24999)
+texture = SubResource("CanvasTexture_g7b7a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=736551750]
+shape = SubResource("RectangleShape2D_gyc6d")

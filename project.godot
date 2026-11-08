@@ -15,6 +15,12 @@ config/description="Sandbox de gestión y programación de prisioneros."
 run/main_scene="uid://pxdwadj6f31p"
 config/features=PackedStringArray("4.7")
 
+[autoload]
+
+TimeManager="*uid://bjamnmekx40ah"
+InventoryManager="*uid://j4lbliwicdld"
+WeatherManager="*uid://drlbhwvkj6ssa"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

@@ -4,55 +4,63 @@ extends CanvasLayer
 @onready var hunger_label: Label = $HungerLabel
 @onready var game_over_label: Label = $GameOverLabel
 @onready var storm_label: Label = $StormLabel
-
-@onready var apply_button: Button = $WorkPanel/ApplyButton
+@onready var open_program_button: Button = $OpenProgramButton
 @onready var work_panel = $WorkPanel
-@onready var open_program_button = $OpenProgramButton
+@onready var time_label: Label = $TimeLabel
+@onready var resources_label: Label = $ResourcesLabel
+@onready var morale_fill: ColorRect = $MoraleBarFill
+
 
 func _ready() -> void:
 	game_over_label.text = ""
-	var storage = get_tree().get_first_node_in_group("almacen")
-	if storage and storage.has_signal("victory_reached"):
-		storage.victory_reached.connect(_on_victory)
 	open_program_button.pressed.connect(_on_open_program_pressed)
+	TimeManager.time_changed.connect(_on_time_changed)
+	_on_time_changed(TimeManager.current_hour, TimeManager.current_minute)
+	InventoryManager.inventory_changed.connect(_update_inventory_ui)
+	_update_inventory_ui()
 
+func _update_inventory_ui() -> void:
+	if resources_label:
+		resources_label.text = "Rocas: %d | Metal: %d" % [InventoryManager.rocks, InventoryManager.metal]
+
+func _on_time_changed(_hour: int, _minute: int) -> void:
+	time_label.text = TimeManager.get_time_string()
+	
 func _process(_delta: float) -> void:
-	var prisoner = get_tree().get_first_node_in_group("prisionero")
-	if prisoner and is_instance_valid(prisoner) and not prisoner.is_queued_for_deletion():
-		# Acceder a los componentes del prisionero
-		if prisoner.needs:
-			var hunger_percent = prisoner.needs.current_hunger / prisoner.needs.max_hunger
+	var entity = get_tree().get_first_node_in_group("entities")
+	
+	if entity and is_instance_valid(entity) and not entity.is_queued_for_deletion():
+		# Hambre
+		if entity.needs:
+			var hunger_percent = entity.needs.current_hunger / entity.needs.max_hunger
 			hunger_fill.size.x = 200 * hunger_percent
-			hunger_label.text = "Hambre: " + str(int(prisoner.needs.current_hunger))
-		
-		if prisoner.storm_manager:
-			if prisoner.storm_manager.in_storm:
-				storm_label.text = "¡TORMENTA!"
-				storm_label.modulate = Color.RED
+			hunger_label.text = "Hambre: " + str(int(entity.needs.current_hunger))
+		# Clima
+		if WeatherManager.is_storm_active:
+			storm_label.text = "¡TORMENTA!"
+			storm_label.modulate = Color.RED
+		elif WeatherManager.is_solar_flare_active:
+			storm_label.text = "¡RADIACIÓN SOLAR!"
+			storm_label.modulate = Color.PURPLE
+		else:
+			storm_label.text = "Clima estable"
+			storm_label.modulate = Color.WHITE
+		# Moral
+		if entity.morale:
+			var morale_percent = entity.morale.current_morale / entity.morale.max_morale
+			morale_fill.size.x = 200 * morale_percent
+			# Cambiar color si está baja (rojo) o alta (verde)
+			if morale_percent < 0.3:
+				morale_fill.color = Color.RED
 			else:
-				var time_left = prisoner.storm_manager.storm_timer
-				storm_label.text = "Tormenta en: " + str(int(time_left)) + "s"
-				storm_label.modulate = Color.WHITE
+				morale_fill.color = Color.GREEN
 	else:
+		# Game Over
 		if game_over_label.text == "":
 			game_over_label.text = "GAME OVER\nEl prisionero ha muerto."
 			storm_label.text = ""
 
-func _on_victory() -> void:
-	game_over_label.text = "¡VICTORIA!\nHas almacenado 10 rocas."
-
-func _on_restart_pressed() -> void:
-	get_tree().reload_current_scene()
-
-func _on_apply_pressed() -> void:
-	var prisoner = get_tree().get_first_node_in_group("prisionero")
-	if prisoner and prisoner.has_node("Brain"):
-		var brain = prisoner.get_node("Brain")
-		var new_priorities: Array[String] = []
-		brain.set_priorities(new_priorities)
-		print("Prioridades aplicadas: ", new_priorities)
-
 func _on_open_program_pressed() -> void:
-	var prisoner = get_tree().get_first_node_in_group("prisionero")
-	if prisoner:
-		work_panel.open_panel(prisoner)
+	var entity = get_tree().get_first_node_in_group("entities")
+	if entity and work_panel:
+		work_panel.open_panel(entity)

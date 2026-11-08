@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://brul5qf7glmly"]
+
+[ext_resource type="Script" uid="uid://bqbwaprjm87re" path="res://scripts/entities/entity.gd" id="1_7agfi"]
+[ext_resource type="Script" uid="uid://d1rjjl258qtnh" path="res://scripts/components/movement.gd" id="2_7sg2j"]
+[ext_resource type="Script" uid="uid://ccs2q6f4rp7wu" path="res://scripts/systems/brain.gd" id="3_366ky"]
+[ext_resource type="Script" uid="uid://bdvf468j3l41l" path="res://scripts/components/needs.gd" id="4_7sg2j"]
+[ext_resource type="Script" uid="uid://cnx5jk5pmdyhn" path="res://scripts/components/storm_manager.gd" id="5_366ky"]
+[ext_resource type="Script" uid="uid://ce6onpd0gmy4b" path="res://scripts/components/combat.gd" id="6_2213q"]
+[ext_resource type="Script" uid="uid://crjhxunqxupxk" path="res://scripts/components/morale.gd" id="7_8oa18"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_g7b7a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g7b7a"]
+size = Vector2(28, 25)
+
+[node name="Entity" type="CharacterBody2D" unique_id=59646996]
+script = ExtResource("1_7agfi")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1253730391]
+modulate = Color(0.87795293, 0.46659452, 0.25426623, 1)
+scale = Vector2(25.5, 23.000002)
+texture = SubResource("CanvasTexture_g7b7a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1751385151]
+shape = SubResource("RectangleShape2D_g7b7a")
+
+[node name="Movement" type="Node" parent="." unique_id=1548840915]
+script = ExtResource("2_7sg2j")
+
+[node name="Brain" type="Node" parent="." unique_id=2033327602]
+script = ExtResource("3_366ky")
+
+[node name="Needs" type="Node" parent="." unique_id=1835931435]
+script = ExtResource("4_7sg2j")
+
+[node name="StormManager" type="Node" parent="." unique_id=734798573]
+script = ExtResource("5_366ky")
+
+[node name="Combat" type="Node" parent="." unique_id=35931458]
+script = ExtResource("6_2213q")
+
+[node name="Morale" type="Node" parent="." unique_id=1713092647]
+script = ExtResource("7_8oa18")

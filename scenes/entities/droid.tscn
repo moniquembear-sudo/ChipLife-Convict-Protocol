@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://btum7wpgaa0cu"]
+
+[ext_resource type="Script" uid="uid://bqbwaprjm87re" path="res://scripts/entities/entity.gd" id="1_a6cjl"]
+[ext_resource type="Script" uid="uid://d1rjjl258qtnh" path="res://scripts/components/movement.gd" id="2_fghcu"]
+[ext_resource type="Script" uid="uid://ccs2q6f4rp7wu" path="res://scripts/systems/brain.gd" id="3_ddh8n"]
+[ext_resource type="Script" uid="uid://ygc5py7t33tb" path="res://scripts/components/energy.gd" id="4_h80f1"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_g7b7a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g7b7a"]
+size = Vector2(39, 36)
+
+[node name="Droid" type="CharacterBody2D" unique_id=1384174577]
+script = ExtResource("1_a6cjl")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=713222713]
+modulate = Color(0.8916579, 0.80375755, 0.71618825, 1)
+scale = Vector2(39.25, 34.75)
+texture = SubResource("CanvasTexture_g7b7a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1710071424]
+shape = SubResource("RectangleShape2D_g7b7a")
+
+[node name="Movement" type="Node" parent="." unique_id=203754415]
+script = ExtResource("2_fghcu")
+
+[node name="Brain" type="Node" parent="." unique_id=552255518]
+script = ExtResource("3_ddh8n")
+
+[node name="Energy" type="Node" parent="." unique_id=1498541024]
+script = ExtResource("4_h80f1")

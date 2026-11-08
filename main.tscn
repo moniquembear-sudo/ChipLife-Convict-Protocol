@@ -1,67 +1,73 @@
 [gd_scene format=3 uid="uid://pxdwadj6f31p"]
 
-[ext_resource type="PackedScene" uid="uid://catwuack1y4js" path="res://scenes/characters/prisoner.tscn" id="1_h2yge"]
-[ext_resource type="PackedScene" uid="uid://b3pj3ctttivp8" path="res://scenes/characters/rock.tscn" id="3_lquwl"]
+[ext_resource type="PackedScene" uid="uid://brul5qf7glmly" path="res://scenes/entities/entity.tscn" id="1_0xm2m"]
+[ext_resource type="Script" uid="uid://ccu6gblio6ro6" path="res://scripts/systems/main.gd" id="1_272bh"]
+[ext_resource type="PackedScene" uid="uid://c74qgubvsehx" path="res://scenes/levels/rock.tscn" id="2_h2yge"]
 [ext_resource type="PackedScene" uid="uid://vb6snnbnt12r" path="res://scenes/levels/storage.tscn" id="4_1bvp3"]
-[ext_resource type="PackedScene" uid="uid://c5ru7834gro1b" path="res://scenes/levels/food.tscn" id="5_lquwl"]
-[ext_resource type="PackedScene" uid="uid://dgfkfcljjy61k" path="res://scenes/ui/ui.tscn" id="7_kek77"]
-[ext_resource type="PackedScene" uid="uid://crqb07xug1ib8" path="res://scenes/levels/shelter.tscn" id="8_kek77"]
+[ext_resource type="PackedScene" uid="uid://sfier6sl0avp" path="res://scenes/levels/shelter.tscn" id="4_lquwl"]
+[ext_resource type="PackedScene" uid="uid://c5ru7834gro1b" path="res://scenes/levels/food.tscn" id="5_7mycd"]
+[ext_resource type="PackedScene" uid="uid://dgfkfcljjy61k" path="res://scenes/ui/ui.tscn" id="6_7mycd"]
+[ext_resource type="PackedScene" uid="uid://btum7wpgaa0cu" path="res://scenes/entities/droid.tscn" id="8_kek77"]
+[ext_resource type="PackedScene" uid="uid://ddxahmknduapv" path="res://scenes/levels/estacion_solar.tscn" id="9_4c57u"]
+[ext_resource type="PackedScene" uid="uid://dvwmocrstwdsv" path="res://scenes/levels/metal.tscn" id="10_4c57u"]
 
-[node name="main" type="Node2D" unique_id=1390243674]
+[node name="Main" type="Node2D" unique_id=515462936]
+script = ExtResource("1_272bh")
 
-[node name="Prisoner" parent="." unique_id=1984377150 instance=ExtResource("1_h2yge")]
-position = Vector2(57.999996, 46.999996)
-scale = Vector2(5, 5)
+[node name="Background" type="ColorRect" parent="." unique_id=809028144]
+offset_right = 2125.0
+offset_bottom = 1325.0
 
-[node name="Rock" parent="." unique_id=297594708 instance=ExtResource("3_lquwl")]
-position = Vector2(821, 145)
+[node name="Entity" parent="." unique_id=59646996 instance=ExtResource("1_0xm2m")]
 
-[node name="Storage" parent="." unique_id=1360826672 instance=ExtResource("4_1bvp3")]
-position = Vector2(520, 426)
-scale = Vector2(2, 2)
-script = null
+[node name="Rock" parent="." unique_id=822939337 instance=ExtResource("2_h2yge")]
+position = Vector2(530, 236)
+scale = Vector2(0.2, 0.2)
 
-[node name="UI" parent="." unique_id=182508876 instance=ExtResource("7_kek77")]
+[node name="Rock4" parent="." unique_id=1236928896 instance=ExtResource("2_h2yge")]
+position = Vector2(391, 86.000015)
+scale = Vector2(0.2, 0.2)
 
-[node name="Shelter" parent="." unique_id=2071774254 instance=ExtResource("8_kek77")]
-position = Vector2(385, 370)
-script = null
+[node name="Rock3" parent="." unique_id=39507580 instance=ExtResource("2_h2yge")]
+position = Vector2(341, 87.000015)
+scale = Vector2(0.2, 0.2)
 
-[node name="Food" parent="." unique_id=2020487768 instance=ExtResource("5_lquwl")]
-position = Vector2(626.99994, 385.99997)
-script = null
+[node name="Rock2" parent="." unique_id=85517212 instance=ExtResource("2_h2yge")]
+position = Vector2(688, 84.000015)
+scale = Vector2(0.2, 0.2)
 
-[node name="Rock2" parent="." unique_id=1834989481 instance=ExtResource("3_lquwl")]
-position = Vector2(912, 457)
+[node name="Storage" parent="." unique_id=1047039713 instance=ExtResource("4_1bvp3")]
+position = Vector2(253, 331)
 
-[node name="Rock3" parent="." unique_id=184981361 instance=ExtResource("3_lquwl")]
-position = Vector2(648, 140)
+[node name="Shelter" parent="." unique_id=1475612599 instance=ExtResource("4_lquwl")]
+position = Vector2(633, 409)
 
-[node name="Rock4" parent="." unique_id=1615961173 instance=ExtResource("3_lquwl")]
-position = Vector2(706, 304)
+[node name="Food" parent="." unique_id=1731773089 instance=ExtResource("5_7mycd")]
+position = Vector2(152, 108)
+scale = Vector2(0.2, 0.2)
 
-[node name="Rock5" parent="." unique_id=1687082737 instance=ExtResource("3_lquwl")]
-position = Vector2(761, 414)
+[node name="UI" parent="." unique_id=38244121 instance=ExtResource("6_7mycd")]
 
-[node name="Rock6" parent="." unique_id=906438050 instance=ExtResource("3_lquwl")]
-position = Vector2(848, 406)
+[node name="Droid" parent="." unique_id=1384174577 instance=ExtResource("8_kek77")]
+position = Vector2(73, 310.99997)
+scale = Vector2(0.7, 0.7)
 
-[node name="Rock7" parent="." unique_id=629076066 instance=ExtResource("3_lquwl")]
-position = Vector2(813, 352)
+[node name="EstacionSolar" parent="." unique_id=1266393310 instance=ExtResource("9_4c57u")]
+position = Vector2(255, 536)
+scale = Vector2(0.7, 0.7)
 
-[node name="Rock8" parent="." unique_id=2050211364 instance=ExtResource("3_lquwl")]
-position = Vector2(108, 284)
+[node name="Metal" parent="." unique_id=1386267993 instance=ExtResource("10_4c57u")]
+position = Vector2(503.99997, 552)
+scale = Vector2(0.2, 0.2)
 
-[node name="Rock9" parent="." unique_id=1069818754 instance=ExtResource("3_lquwl")]
-position = Vector2(251, 247)
+[node name="Metal3" parent="." unique_id=2102567973 instance=ExtResource("10_4c57u")]
+position = Vector2(570.99994, 565)
+scale = Vector2(0.2, 0.2)
 
-[node name="Rock10" parent="." unique_id=722516419 instance=ExtResource("3_lquwl")]
-position = Vector2(199, 239)
+[node name="Metal2" parent="." unique_id=443708231 instance=ExtResource("10_4c57u")]
+position = Vector2(543, 616)
+scale = Vector2(0.2, 0.2)
 
-[node name="Food2" parent="." unique_id=1827895002 instance=ExtResource("5_lquwl")]
-position = Vector2(369, 160)
-script = null
-
-[node name="Food3" parent="." unique_id=1082819982 instance=ExtResource("5_lquwl")]
-position = Vector2(64.00003, 554)
-script = null
+[node name="CreatureSpawnTimer" type="Timer" parent="." unique_id=702363776]
+wait_time = 40.0
+autostart = true

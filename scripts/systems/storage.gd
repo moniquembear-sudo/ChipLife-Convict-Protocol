@@ -1,7 +1,6 @@
 extends Area2D
 
 signal victory_reached
-
 var stored_rocks: int = 0
 const ROCKS_TO_WIN: int = 10
 

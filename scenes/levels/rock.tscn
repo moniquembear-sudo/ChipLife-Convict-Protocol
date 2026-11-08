@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://c74qgubvsehx"]
+
+[ext_resource type="Script" uid="uid://bvucjrgc1dlmh" path="res://scripts/entities/rock.gd" id="1_4bujl"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_g7b7a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g7b7a"]
+size = Vector2(99.5, 95.75)
+
+[node name="Rock" type="Area2D" unique_id=822939337]
+script = ExtResource("1_4bujl")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=598387372]
+modulate = Color(0.65119505, 0.46057284, 0.35729948, 1)
+scale = Vector2(94.5, 91.5)
+texture = SubResource("CanvasTexture_g7b7a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=785524695]
+shape = SubResource("RectangleShape2D_g7b7a")

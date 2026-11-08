@@ -1,37 +1,32 @@
 extends Node
 class_name StormManagerComponent
 
-var entity: CharacterBody2D
-var storm_interval: float = 30.0
+var entity: Entity
 var storm_damage: float = 10.0
-var storm_timer: float = 0.0
-var in_storm: bool = false
 var in_shelter: bool = false
-var shelter: Area2D
 
-func setup(parent: CharacterBody2D) -> void:
+func setup(parent: Entity) -> void:
 	entity = parent
-	storm_timer = storm_interval
+	WeatherManager.storm_started.connect(_on_storm_started)
+	WeatherManager.storm_ended.connect(_on_storm_ended)
 
 func _physics_process(delta: float) -> void:
-	# Comprobar refugio por distancia
+	# Comprobar si está en el refugio
+	var shelter = get_tree().get_first_node_in_group("refugio")
 	if shelter:
-		in_shelter = entity.global_position.distance_to(shelter.global_position) < 60.0
+		in_shelter = entity.global_position.distance_to(shelter.global_position) < 100.0
 	else:
 		in_shelter = false
 	
-	# Tormenta
-	if in_storm:
-		if not in_shelter:
-			entity.current_health -= storm_damage * delta
-			if entity.current_health <= 0:
-				entity.queue_free()
-	else:
-		storm_timer -= delta
-		if storm_timer <= 0:
-			in_storm = true
-			storm_timer = storm_interval
-			print("¡Tormenta!")
-			await get_tree().create_timer(10.0).timeout
-			in_storm = false
-			print("La tormenta ha pasado.")
+	# Daño por tormenta normal
+	if WeatherManager.is_storm_active and not in_shelter:
+		entity.needs.current_health -= storm_damage * delta
+		if entity.needs.current_health <= 0:
+			print("Entidad muerta por tormenta.")
+			entity.queue_free()
+
+func _on_storm_started() -> void:
+	print("Entidad detecta: Tormenta normal.")
+
+func _on_storm_ended() -> void:
+	print("Entidad detecta: Tormenta terminada.")
