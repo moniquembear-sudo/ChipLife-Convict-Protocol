@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var background: ColorRect = $Background
 @onready var spawn_timer: Timer = $CreatureSpawnTimer
-
+@onready var rival_timer: Timer = $RivalSpawnTimer
 
 func _ready() -> void:
 	# Conectar a las señales del reloj global
@@ -10,6 +10,7 @@ func _ready() -> void:
 	# Aplicar el color inicial
 	_on_day_night_changed(TimeManager.is_day)
 	spawn_timer.timeout.connect(_spawn_creature)
+	rival_timer.timeout.connect(_spawn_rival)
 
 func _on_day_night_changed(is_day: bool) -> void:
 	if is_day:
@@ -26,3 +27,11 @@ func _spawn_creature() -> void:
 	c.global_position = Vector2(randf_range(-500, 500), randf_range(-500, 500))
 	add_child(c)
 	print("¡Una criatura ha aparecido!")
+
+func _spawn_rival() -> void:
+	var rival_scene = load("res://scenes/entities/rival.tscn")
+	var r = rival_scene.instantiate()
+	# Aparece en un borde aleatorio del mapa
+	r.global_position = Vector2(randf_range(-600, 600), randf_range(-600, 600))
+	add_child(r)
+	print("¡Un prisionero rival ha llegado al planeta!")

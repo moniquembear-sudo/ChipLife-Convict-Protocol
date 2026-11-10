@@ -1,8 +1,8 @@
-res://scripts/components/
 res://scripts/systems/
 res://scenes/entities/
+res://scripts/components/
+res://scripts/ui/
 res://scenes/levels/
 res://scripts/entities/
-res://scripts/ui/
 res://scenes/ui/
 res://

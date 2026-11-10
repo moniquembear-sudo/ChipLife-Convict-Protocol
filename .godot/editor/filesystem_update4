@@ -1,4 +1,5 @@
-res://scripts/components/needs.gd
+res://scenes/entities/Rival.tscn
+res://scenes/entities/entity.tscn
 res://main.tscn
-res://scripts/components/morale.gd
-res://scripts/components/storm_manager.gd
+res://scripts/entities/entity.gd
+res://scenes/entities/rival.tscn

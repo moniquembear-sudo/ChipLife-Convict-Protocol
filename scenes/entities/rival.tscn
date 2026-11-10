@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://dmykf83lv0ft5"]
+
+[ext_resource type="Script" uid="uid://j4nwlaypftw1" path="res://scripts/systems/rival_ai.gd" id="1_bepc2"]
+[ext_resource type="Script" uid="uid://d1rjjl258qtnh" path="res://scripts/components/movement.gd" id="2_7sg2j"]
+[ext_resource type="Script" uid="uid://ce6onpd0gmy4b" path="res://scripts/components/combat.gd" id="6_2213q"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_g7b7a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g7b7a"]
+size = Vector2(28, 25)
+
+[node name="Rival" type="CharacterBody2D" unique_id=59646996]
+script = ExtResource("1_bepc2")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1253730391]
+modulate = Color(0.87795293, 0.46659452, 0.25426623, 1)
+scale = Vector2(25.5, 23.000002)
+texture = SubResource("CanvasTexture_g7b7a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1751385151]
+shape = SubResource("RectangleShape2D_g7b7a")
+
+[node name="Movement" type="Node" parent="." unique_id=1548840915]
+script = ExtResource("2_7sg2j")
+
+[node name="Combat" type="Node" parent="." unique_id=35931458]
+script = ExtResource("6_2213q")

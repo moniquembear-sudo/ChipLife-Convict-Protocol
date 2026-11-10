@@ -3,7 +3,7 @@ class_name Brain
 
 var entity: Entity
 # Prioridades por defecto:
-var priorities: Array[String] = ["recolectar", "transportar", "comer", "refugiarse", "descansar"]
+var priorities: Array[String] = ["refugiarse", "comer", "recargar", "recolectar", "minar", "transportar", "descansar"]
 
 func setup(parent: Entity) -> void:
 	entity = parent
@@ -75,12 +75,26 @@ func _try_action(action: String) -> bool:
 			if not entity.storm_manager: return false
 			# Si hay tormenta o tormenta solar, y no está en refugio
 			if not (WeatherManager.is_storm_active or WeatherManager.is_solar_flare_active): return false
-			if entity.storm_manager.in_shelter: return false
 			
-			var shelter = get_tree().get_first_node_in_group("refugio")
-			if shelter:
-				entity.movement.move_to(shelter.global_position)
-				return true
+			# Si YA está en el refugio (por colisión), comprobamos si está en el centro
+			if entity.in_shelter:
+				var shelter = get_tree().get_first_node_in_group("refugio")
+				if shelter:
+					var dist_al_centro = entity.global_position.distance_to(shelter.global_position)
+					if dist_al_centro < 30.0:
+						# Ya está en el centro, puede dejar de moverse
+						entity.movement.stop()
+						return true
+					else:
+						# Está en el borde, debe seguir caminando al centro
+						entity.movement.move_to(shelter.global_position)
+						return true
+			else:
+				# No ha tocado el refugio aún, moverse hacia él
+				var shelter = get_tree().get_first_node_in_group("refugio")
+				if shelter:
+					entity.movement.move_to(shelter.global_position)
+					return true
 		"descansar":
 			entity.movement.stop()
 			return true
@@ -103,6 +117,11 @@ func _try_action(action: String) -> bool:
 					if entity.combat:
 						entity.combat.attack(target)
 			return true
+		"comerciar":
+			var ship = get_tree().get_first_node_in_group("merchant_ship")
+			if ship and ship.is_present:
+				entity.movement.move_to(ship.global_position)
+				return true
 	return false
 
 func _find_nearest_rock() -> Area2D:
@@ -135,16 +154,6 @@ func _find_nearest_food() -> Area2D:
 			nearest = food
 	return nearest
 
-func _find_nearest_creature() -> Node2D:
-	var nearest = null
-	var min_dist = INF
-	for c in get_tree().get_nodes_in_group("creatures"):
-		var d = entity.global_position.distance_to(c.global_position)
-		if d < min_dist:
-			min_dist = d
-			nearest = c
-	return nearest
-
 func _find_nearest_entity() -> Node2D:
 	var nearest = null
 	var min_dist = INF
@@ -154,4 +163,23 @@ func _find_nearest_entity() -> Node2D:
 		if d < min_dist:
 			min_dist = d
 			nearest = e
+	return nearest
+
+func _find_nearest_creature() -> Node2D:
+	var nearest = null
+	var min_dist = INF
+	for c in get_tree().get_nodes_in_group("creatures"):
+		var d = entity.global_position.distance_to(c.global_position)
+		if d < min_dist:
+			min_dist = d
+			nearest = c
+	# Añadir rivales al objetivo
+	for e in get_tree().get_nodes_in_group("entities"):
+		if e == entity: continue
+		# Si la entidad tiene RivalAI, es un enemigo
+		if e.has_node("RivalAI"):
+			var d = entity.global_position.distance_to(e.global_position)
+			if d < min_dist:
+				min_dist = d
+				nearest = e
 	return nearest

@@ -2,8 +2,10 @@ extends CharacterBody2D
 class_name Entity
 
 var carrying_rock: bool = false
+var in_shelter: bool = false
 
-@onready var brain: Node = $Brain
+@onready var brain: Node = $Brain if has_node("Brain") else null
+@onready var rival_ai: Node = $RivalAI if has_node("RivalAI") else null
 @onready var movement: Node = $Movement
 @onready var needs: Node = $Needs if has_node("Needs") else null
 @onready var energy: Node = $Energy if has_node("Energy") else null
@@ -14,6 +16,7 @@ var carrying_rock: bool = false
 func _ready() -> void:
 	add_to_group("entities")
 	if brain: brain.setup(self)
+	if rival_ai: rival_ai.setup(self)
 	if movement: movement.setup(self)
 	if needs: needs.setup(self)
 	if energy: energy.setup(self)
@@ -23,3 +26,4 @@ func _ready() -> void:
 
 func _physics_process(_delta: float) -> void:
 	if brain: brain.execute()
+	if rival_ai: rival_ai._physics_process(_delta)

@@ -1,7 +1,7 @@
 extends Panel
 
 var entity: Entity
-var actions: Array[String] = ["Defender", "Recolectar", "Minar", "Transportar", "Comer", "Refugiarse", "Descansar"]
+var actions: Array[String] = ["Defender", "Recolectar", "Minar", "Transportar", "Comer", "Refugiarse", "Comerciar", "Descansar"]
 var grid: GridContainer
 
 @onready var table_scroll: ScrollContainer = $TableScroll
@@ -50,15 +50,7 @@ func _build_table() -> void:
 	name_label.add_theme_color_override("font_color", Color.GREEN)
 	grid.add_child(name_label)
 	
-	var default_priorities = {
-		"Defender": "0",
-		"Recolectar": "1", 
-		"Minar": "0",
-		"Transportar": "2", 
-		"Comer": "3", 
-		"Refugiarse": "0", 
-		"Descansar": "0"
-		}
+	var default_priorities = {"Recolectar": "1", "Transportar": "2", "Comer": "3", "Refugiarse": "0", "Descansar": "0"}
 	
 	for action in actions:
 		var btn = Button.new()

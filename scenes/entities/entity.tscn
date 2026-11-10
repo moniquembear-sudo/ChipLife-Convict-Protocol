@@ -39,5 +39,5 @@ script = ExtResource("5_366ky")
 [node name="Combat" type="Node" parent="." unique_id=35931458]
 script = ExtResource("6_2213q")
 
-[node name="Morale" type="Node" parent="." unique_id=1713092647]
+[node name="Morale" type="Node" parent="." unique_id=56037055]
 script = ExtResource("7_8oa18")

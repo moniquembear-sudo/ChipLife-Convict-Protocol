@@ -21,7 +21,7 @@ func _ready() -> void:
 
 func _update_inventory_ui() -> void:
 	if resources_label:
-		resources_label.text = "Rocas: %d | Metal: %d" % [InventoryManager.rocks, InventoryManager.metal]
+		resources_label.text = "Rocas: %d | Metal: %d | Créditos: %d" % [InventoryManager.rocks, InventoryManager.metal, InventoryManager.credits]
 
 func _on_time_changed(_hour: int, _minute: int) -> void:
 	time_label.text = TimeManager.get_time_string()

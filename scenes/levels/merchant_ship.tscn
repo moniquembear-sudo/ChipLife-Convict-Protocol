@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://tnw04njq7c0m"]
+
+[ext_resource type="Script" uid="uid://33acgphho61x" path="res://scripts/systems/merchant_ship.gd" id="1_7nq6e"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_g7b7a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g7b7a"]
+size = Vector2(63, 60)
+
+[node name="Merchant_ship" type="Area2D" unique_id=1777394190]
+script = ExtResource("1_7nq6e")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=285183553]
+modulate = Color(0.36831564, 0.5097855, 0.44505072, 1)
+scale = Vector2(64.5, 58.5)
+texture = SubResource("CanvasTexture_g7b7a")
+flip_v = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=776534000]
+shape = SubResource("RectangleShape2D_g7b7a")

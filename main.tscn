@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://btum7wpgaa0cu" path="res://scenes/entities/droid.tscn" id="8_kek77"]
 [ext_resource type="PackedScene" uid="uid://ddxahmknduapv" path="res://scenes/levels/estacion_solar.tscn" id="9_4c57u"]
 [ext_resource type="PackedScene" uid="uid://dvwmocrstwdsv" path="res://scenes/levels/metal.tscn" id="10_4c57u"]
+[ext_resource type="PackedScene" uid="uid://tnw04njq7c0m" path="res://scenes/levels/merchant_ship.tscn" id="11_efxa6"]
 
 [node name="Main" type="Node2D" unique_id=515462936]
 script = ExtResource("1_272bh")
@@ -17,8 +18,6 @@ script = ExtResource("1_272bh")
 [node name="Background" type="ColorRect" parent="." unique_id=809028144]
 offset_right = 2125.0
 offset_bottom = 1325.0
-
-[node name="Entity" parent="." unique_id=59646996 instance=ExtResource("1_0xm2m")]
 
 [node name="Rock" parent="." unique_id=822939337 instance=ExtResource("2_h2yge")]
 position = Vector2(530, 236)
@@ -46,6 +45,14 @@ position = Vector2(633, 409)
 position = Vector2(152, 108)
 scale = Vector2(0.2, 0.2)
 
+[node name="Food3" parent="." unique_id=1749946948 instance=ExtResource("5_7mycd")]
+position = Vector2(691.99994, 403.99997)
+scale = Vector2(0.2, 0.2)
+
+[node name="Food2" parent="." unique_id=1768294143 instance=ExtResource("5_7mycd")]
+position = Vector2(614, 383.99997)
+scale = Vector2(0.2, 0.2)
+
 [node name="UI" parent="." unique_id=38244121 instance=ExtResource("6_7mycd")]
 
 [node name="Droid" parent="." unique_id=1384174577 instance=ExtResource("8_kek77")]
@@ -68,6 +75,16 @@ scale = Vector2(0.2, 0.2)
 position = Vector2(543, 616)
 scale = Vector2(0.2, 0.2)
 
+[node name="Merchant_ship" parent="." unique_id=1777394190 instance=ExtResource("11_efxa6")]
+modulate = Color(1, 1, 1, 0.47843137)
+position = Vector2(1037, 144)
+
+[node name="RivalSpawnTimer" type="Timer" parent="." unique_id=1984291710]
+wait_time = 45.0
+autostart = true
+
 [node name="CreatureSpawnTimer" type="Timer" parent="." unique_id=702363776]
 wait_time = 40.0
 autostart = true
+
+[node name="Entity" parent="." unique_id=59646996 instance=ExtResource("1_0xm2m")]

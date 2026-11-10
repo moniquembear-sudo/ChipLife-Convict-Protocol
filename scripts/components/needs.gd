@@ -20,18 +20,4 @@ func _physics_process(delta: float) -> void:
 	if current_hunger <= 0:
 		print("Entidad muerta de hambre.")
 		entity.queue_free()
-  # NUEVO: Daño por tormenta solar (radiación)
-	if WeatherManager.is_solar_flare_active:
-		# Si no está en un refugio (comprobamos la distancia al refugio)
-		var shelter = get_tree().get_first_node_in_group("refugio")
-		var in_shelter = false
-		if shelter:
-			in_shelter = entity.global_position.distance_to(shelter.global_position) < 100.0
-		
-		if not in_shelter:
-			current_health -= 15.0 * delta # Más daño que la tormenta normal
-			if current_health <= 0:
-				entity.queue_free()
-				print("Entidad muerta por radiación solar.")
-		else:
-			print("estas en el refugio")
+	# EL DAÑO CLIMÁTICO AHORA LO GESTIONA storm_manager.gd
