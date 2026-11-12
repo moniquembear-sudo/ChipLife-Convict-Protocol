@@ -1,5 +1,5 @@
-res://scenes/entities/Rival.tscn
-res://scenes/entities/entity.tscn
-res://main.tscn
+res://scenes/ui/ui.tscn
 res://scripts/entities/entity.gd
-res://scenes/entities/rival.tscn
+res://scripts/ui/research_panel.gd
+res://scripts/components/storm_manager.gd
+res://scripts/ui/ui.gd

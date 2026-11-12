@@ -23,6 +23,10 @@ func _ready() -> void:
 	if storm_manager: storm_manager.setup(self)
 	if combat: combat.setup(self)
 	if morale: morale.setup(self)
+	if movement:
+		movement.setup(self)
+		if ResearchManager.unlocked_chips:
+			movement.speed *= 1.5 # 50% más rápido
 
 func _physics_process(_delta: float) -> void:
 	if brain: brain.execute()

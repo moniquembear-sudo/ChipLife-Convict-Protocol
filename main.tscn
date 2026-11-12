@@ -87,4 +87,4 @@ autostart = true
 wait_time = 40.0
 autostart = true
 
-[node name="Entity" parent="." unique_id=59646996 instance=ExtResource("1_0xm2m")]
+[node name="Entity" parent="." unique_id=59646996 groups=["player_entity"] instance=ExtResource("1_0xm2m")]

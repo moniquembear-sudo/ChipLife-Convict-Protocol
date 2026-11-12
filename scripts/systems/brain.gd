@@ -3,7 +3,7 @@ class_name Brain
 
 var entity: Entity
 # Prioridades por defecto:
-var priorities: Array[String] = ["refugiarse", "comer", "recargar", "recolectar", "minar", "transportar", "descansar"]
+var priorities: Array[String] = ["refugiarse", "comer", "recargar", "transportar", "descansar"]
 
 func setup(parent: Entity) -> void:
 	entity = parent

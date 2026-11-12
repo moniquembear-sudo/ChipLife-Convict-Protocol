@@ -11,20 +11,22 @@ func setup(parent: Entity) -> void:
 	WeatherManager.storm_ended.connect(_on_storm_ended)
 
 func _physics_process(delta: float) -> void:
-	# Si está en el refugio, no recibe daño
+	# Si está en el refugio (variable de la entidad), no recibe daño
 	if entity.in_shelter: 
 		return
 	
 	# Daño por tormenta normal
 	if WeatherManager.is_storm_active:
-		entity.needs.current_health -= storm_damage * delta
+		var damage_mult = 0.5 if ResearchManager.unlocked_suits else 1.0
+		entity.needs.current_health -= storm_damage * damage_mult * delta
 		if entity.needs.current_health <= 0:
 			print("Entidad muerta por tormenta.")
 			entity.queue_free()
 	
 	# Daño por tormenta solar (radiación)
 	if WeatherManager.is_solar_flare_active:
-		entity.needs.current_health -= solar_flare_damage * delta
+		var damage_mult = 0.5 if ResearchManager.unlocked_suits else 1.0
+		entity.needs.current_health -= solar_flare_damage * damage_mult * delta
 		if entity.needs.current_health <= 0:
 			print("Entidad muerta por radiación solar.")
 			entity.queue_free()

@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://bfl5ias85tl21" path="res://scripts/ui/program_panel.gd" id="2_aac20"]
 [ext_resource type="Script" uid="uid://dubwbhbjgevq1" path="res://scripts/ui/code_panel.gd" id="3_g5kmx"]
 [ext_resource type="Script" uid="uid://csr8dry6wymvu" path="res://scripts/ui/trade_panel.gd" id="4_g5kmx"]
+[ext_resource type="Script" uid="uid://by5ukk4h0q5yr" path="res://scripts/ui/research_panel.gd" id="5_0dwhk"]
 
 [node name="UI" type="CanvasLayer" unique_id=38244121]
 script = ExtResource("1_u7n8c")
@@ -231,3 +232,65 @@ offset_top = 189.0
 offset_right = 310.0
 offset_bottom = 220.0
 text = "Vender Todo"
+
+[node name="ResearchPanel" type="Panel" parent="." unique_id=2028592861]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -137.0
+offset_top = -116.5
+offset_right = 137.0
+offset_bottom = 116.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("5_0dwhk")
+
+[node name="BuyChipsBtn" type="Button" parent="ResearchPanel" unique_id=401676586]
+layout_mode = 0
+offset_left = 47.0
+offset_top = 86.5
+offset_right = 272.0
+offset_bottom = 117.5
+text = "Mejorar Chips (150 créditos)"
+
+[node name="BuySuitsBtn" type="Button" parent="ResearchPanel" unique_id=1403036359]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 42.5
+offset_right = 260.0
+offset_bottom = 73.5
+text = "Trajes Espaciales (200 créditos)"
+
+[node name="CloseResearchBtn" type="Button" parent="ResearchPanel" unique_id=1750920384]
+layout_mode = 0
+offset_left = 191.0
+offset_top = 200.5
+offset_right = 249.0
+offset_bottom = 231.5
+text = "Cerrar"
+
+[node name="CreditsLabel" type="Label" parent="ResearchPanel" unique_id=1189543904]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.07300001
+anchor_bottom = 0.09900001
+offset_left = 21.0
+offset_top = 134.5
+offset_right = 40.998
+offset_bottom = 134.433
+
+[node name="ResearchButton" type="Button" parent="." unique_id=143322518]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -306.0
+offset_top = -77.0
+offset_right = -162.0
+offset_bottom = -17.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Investigación"
